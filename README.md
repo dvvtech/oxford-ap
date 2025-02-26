@@ -1,3 +1,3 @@
 # oxford-ap
 
-https://dvvtech.github.io/oxford-ap/
+https://oxford-ap.com/
