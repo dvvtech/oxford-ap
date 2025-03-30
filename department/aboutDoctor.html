@@ -21,6 +21,17 @@
     <link rel="stylesheet" href="../assets/vendor/odometer/odometer.min.css">
     <link rel="stylesheet" href="../assets/css/app.css">
 
+    <script>
+        async function loadComponent(id, file) {
+            const response = await fetch(file);
+            const content = await response.text();
+            document.getElementById(id).innerHTML = content;
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            loadComponent("footer", "../footer.html");
+        });
+    </script>
+
 </head>
 
 <body class="custom-cursor locked">
@@ -66,52 +77,54 @@
         <header>
             <nav class="main-menu">
                 <div class="container">
-                  <div class="main-menu__block">
-                    <div class="main-menu__left">
-        
-                      <div class="main-menu__logo">
-                        <a href="../index.html">
-                          <img src="../assets/media/logo.png" alt="Educate">
-                        </a>
-                      </div>
-        
-                      <div class="main-menu__nav">
-                        <ul class="main-menu__list">
-                          <li class="dropdown">
-                            <a href="../index.html">Главная</a>
-                            <ul>
-                              <li><a href="../index.html" class="active">Библиография</a></li>
-                              <li><a href="../resources/main.html">Ресурсы</a></li>
-                              <li><a href="../reviews/main.html">Отзывы</a></li>
-                              <li><a href="../gallery/main.html">Галерея</a></li>
-                            </ul>
-                          </li>
-                          <li class="dropdown">
-                            <a href="javascript:void(0);" class="active">Кафедра</a>
-                            <ul>
-                              <li><a href="../department/history.html">История учреждения кафедры</a></li>
-                              <li><a href="../department/aboutDoctor.html">О профессоре Яшаре Ибадове</a></li>
-                              <li><a href="../department/aboutDoctorYashar.html">About Professor Yashar Ibadov</a></li>
-                              <li><a href="../department/aboutDoctorYashar.html">Фотогалерея</a></li>
-                            </ul>
-                          </li>
-        
-                          <li class="dropdown">
-                            <a href="javascript:void(0);">Курсы</a>
-                            <ul>
-                              <li><a href="../index.html">Курс 1</a></li>
-                              <li><a href="../index-2.html">Курс 2</a></li>
-                              <li><a href="../index-2.html">Курс 3</a></li>
-                            </ul>
-                          </li>
-                          <li><a href="../research/main.html">Исследования</a></li>
-                          <li><a href="../news/main.html">Новости</a></li>                  
-                          <li><a href="../contact.html">Контакты</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="main-menu__right">
-                      <!--<a href="#" class="main-menu__search search-toggler">
+                    <div class="main-menu__block">
+                        <div class="main-menu__left">
+
+                            <div class="main-menu__logo">
+                                <a href="../index.html">
+                                    <img src="../assets/media/logo.png" alt="Educate">
+                                </a>
+                            </div>
+
+                            <div class="main-menu__nav">
+                                <ul class="main-menu__list">
+                                    <li class="dropdown">
+                                        <a href="../index.html">Главная</a>
+                                        <ul>
+                                            <li><a href="../index.html" class="active">Библиография</a></li>
+                                            <li><a href="../resources/main.html">Ресурсы</a></li>
+                                            <li><a href="../reviews/main.html">Отзывы</a></li>
+                                            <li><a href="../gallery/main.html">Галерея</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="javascript:void(0);" class="active">Кафедра</a>
+                                        <ul>
+                                            <li><a href="../department/history.html">История учреждения кафедры</a></li>
+                                            <li><a href="../department/aboutDoctor.html">О профессоре Яшаре Ибадове</a>
+                                            </li>
+                                            <li><a href="../department/aboutDoctorYashar.html">About Professor Yashar
+                                                    Ibadov</a></li>
+                                            <li><a href="../department/aboutDoctorYashar.html">Фотогалерея</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown">
+                                        <a href="javascript:void(0);">Курсы</a>
+                                        <ul>
+                                            <li><a href="../index.html">Курс 1</a></li>
+                                            <li><a href="../index-2.html">Курс 2</a></li>
+                                            <li><a href="../index-2.html">Курс 3</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="../research/main.html">Исследования</a></li>
+                                    <li><a href="../news/main.html">Новости</a></li>
+                                    <li><a href="../contact.html">Контакты</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="main-menu__right">
+                            <!--<a href="#" class="main-menu__search search-toggler">
                         <i class="fal fa-search"></i>
                       </a>
                       <a href="../login.html" class="main-menu__login">
@@ -119,13 +132,13 @@
                       </a>
                       <a href="../contact.html" class="educate-btn sm d-xl-flex d-none"><span
                           class="educate-btn__curve"></span>Enroll Now</a>-->
-                      <a href="#" class="main-menu__toggler mobile-nav__toggler">
-                        <i class="fa fa-bars"></i>
-                      </a>
+                            <a href="#" class="main-menu__toggler mobile-nav__toggler">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </nav>
+            </nav>
         </header>
         <!-- Sticky Header -->
         <div class="stricky-header stricked-menu main-menu">
@@ -174,25 +187,26 @@
                                 стран и сфер деятельности были вручены высокие рейтинговые отличия. В числе
                                 победителей – азербайджанский ученый Яшар Ибадов, признанный Амбассадором
                                 Международного Института Бизнеса 2023.
-                                </p>
-                                <p class="mb-24">
+                            </p>
+                            <p class="mb-24">
                                 Высокую оценку участников форума также получили изобретенные Я. Ибадовым
                                 пространственные и временные гармонизаторы, кулоны и значки, наклейки с символами
                                 Яй-Осидо (зеркало жизни), песочные и наручные часы Яй-Осидо и солнцезащитные очки
                                 с этим символом.
-                                </p>
+                            </p>
                             </p>
                         </div>
                         <div class="col-lg-4">
-                            <img src="../assets/media/gallery/d21.jpg" width="230" alt="" class="br-20 mb-24" style="margin-top: 75px;">
+                            <img src="../assets/media/gallery/d21.jpg" width="230" alt="" class="br-20 mb-24"
+                                style="margin-top: 75px;">
                         </div>
                     </div>
                     <p class="mb-24">
                         Немного подробнее об академике Ибадове и его открытиях. Яшар Ибадов – врач,
                         выпускник Бакинского медицинского института (1985). В дальнейшем получил второе
                         высшее образование в сфере юриспруденции.
-                        </p>
-                        <p class="mb-24">
+                    </p>
+                    <p class="mb-24">
                         Много лет работал врачом, затем главным врачом Бакинского санатория «Маариф». Затем
                         он серьезно заинтересовался психодиагностикой, психофизиологией и психокоррекцией.
                         В 2002-м он был уже известным специалистом в этой области, а потому закономерным
@@ -209,8 +223,8 @@
                         выявления и психокоррекции причин метаморфоз живых систем». После этого Я. С.
                         Ибадову присуждена учёная степень доктора медико-биологических наук и присвоено
                         звание профессора по специальности «Общая психология и интегративная медицина».
-                        </p>
-                        <p class="mb-24">
+                    </p>
+                    <p class="mb-24">
                         Результатом многолетних исследований стал новый авторский метод психографии, один
                         из вариантов арт-терапии, который позволяет гармонизировать психическое состояние
                         человека и адаптировать его к постоянно изменяющимся условиям окружающей среды.
@@ -317,104 +331,8 @@
     </section>-->
     <!-- Recommended Blogs Area End -->
 
-    <!-- Footer Area Start -->
-    <footer>
-        <div class="footer_main py-60">
-            <img src="../assets/media/shapes/vector-7.png" alt="" class="vector_shape">
-            <img src="../assets/media/shapes/dots-1.png" alt="" class="dots">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-3 ">
-                        <div class="footer_widget">
-                            <a href="index.html" class="mb-8"><img src="../assets/media/logo.png" alt=""></a>
-                            <p class="description_text">Lorem ipsum dolor sit amet consectetur. Non convallis sed id
-                                aliquam tempus.
-                                Volutpat tortor tincidunt egestas sit risus donec.</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-sm-6">
-                        <div class="footer_widget">
-                            <h5 class="medium-black mb-16">Quick Links</h5>
-                            <ul class="unstyled list">
-                                <li><a href=""><i class="fad fa-chevron-right"></i>Courses</a></li>
-                                <li><a href=""><i class="fad fa-chevron-right"></i>Join a Career</a></li>
-                                <li><a href=""><i class="fad fa-chevron-right"></i>Upcoming Events</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-sm-6">
-                        <div class="footer_widget">
-                            <h5 class="medium-black mb-16">Explore</h5>
-                            <ul class="unstyled list">
-                                <li><a href="about.html"><i class="fad fa-chevron-right"></i>About Us</a></li>
-                                <li><a href="gallery.html"><i class="fad fa-chevron-right"></i>Gallery</a></li>
-                                <li><a href="team-detail.html"><i class="fad fa-chevron-right"></i>Teacher’s
-                                        Detail</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-sm-6">
-                        <div class="footer_widget">
-                            <h5 class="medium-black mb-16">Information</h5>
-                            <ul class="unstyled list">
-                                <li><a href="login.html"><i class="fad fa-chevron-right"></i>Login</a></li>
-                                <li><a href="register.html"><i class="fad fa-chevron-right"></i>Register</a></li>
-                                <li><a href="contact.html"><i class="fad fa-chevron-right"></i>Contact Us</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="footer_widget">
-                            <h5 class="medium-black mb-16">Contact Us</h5>
-                            <ul class="unstyled list">
-                                <li class="mb-16"><i class="fal fa-map-marker-alt"></i>631 Elgin ST. Celina, State
-                                    111111</li>
-                                <li class="mb-16"><a href="mailto:info@example.com"><i
-                                            class="fal fa-envelope"></i>email@example.com</a></li>
-                                <li><a href="tel:123456789"><i class="fal fa-phone-alt"></i>+1 234 567 890</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom-row">
-                    <ul class="unstyled social_icons_list">
-                        <li>
-                            <a href="">
-                                <img src="assets/media/icons/brands/Instagram.png" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="assets/media/icons/brands/Facebook.png" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="assets/media/icons/brands/Twitter.png" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="assets/media/icons/brands/Linkedin.png" alt="">
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="newsletter_block">
-                        <h5>Newsletter</h5>
-                        <form class="newsletter">
-                            <input type="email" class="form-control" required placeholder="Your email">
-                            <button type="submit" class="educate-btn sm"><span
-                                    class="educate-btn__curve"></span>Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copyright_row">
-            <p>©2024 Educate All Rights Reserved.</p>
-        </div>
-    </footer>
-    <!-- Footer Area End -->
+    <!-- Footer -->
+    <div id="footer"></div>
 
     </div>
 
