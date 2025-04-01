@@ -2700,7 +2700,9 @@ input[type=search]::-webkit-search-results-decoration {
 .mobile-nav__wrapper .mobile-nav__content .main-menu__list li:not(:last-child) {
   border-bottom: 1px solid RGBA(255, 255, 255, 0.1);
 }
-.mobile-nav__wrapper .mobile-nav__content .main-menu__list li a {
+.mobile-nav__wrapper .mobile-nav__content .main-menu__list li a {  
+  min-height: 46px; /* Опционально: минимальная высота */
+  padding: 5px 0; /* Добавляем отступы сверху/снизу */
   display: flex;
   justify-content: space-between;
   line-height: 30px;
@@ -2709,7 +2711,7 @@ input[type=search]::-webkit-search-results-decoration {
   font-family: "Inter", sans-serif;
   text-transform: capitalize;
   font-weight: 600;
-  height: 46px;
+  
   letter-spacing: 0.48px;
   align-items: center;
   transition: 500ms;
