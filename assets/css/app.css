@@ -2658,7 +2658,7 @@ input[type=search]::-webkit-search-results-decoration {
   cursor: url(../images/close.png), auto;
 }
 .mobile-nav__wrapper .mobile-nav__content {
-  width: 300px;
+  width: 330px;
   background-color: #2a322d;
   z-index: 10;
   position: relative;
@@ -2907,20 +2907,20 @@ footer .copyright_row P {
 
 .hero-banner-1 {
   position: relative;
-  height: 655px;
+  height: 600px;
   background: url(../media/banners/hero-banner-1/hero-bg.png) no-repeat;
   background-size: cover;
   background-position: center;
 }
 @media (max-width: 991px) {
   .hero-banner-1 {
-    height: 900px;
+    height: 550px;
   }
 }
 @media (max-width: 575px) {
   .hero-banner-1 {
     background-position: bottom;
-    height: 850px;
+    height: 450px;
   }
 }
 .hero-banner-1 .content {
