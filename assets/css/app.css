@@ -2399,6 +2399,7 @@ input[type=search]::-webkit-search-results-decoration {
   align-items: center;
   display: none;
 }
+
 @media screen and (min-width: 1200px) {
   .main-menu .main-menu__left .main-menu__nav .main-menu__list,
 .main-menu .main-menu__left .main-menu__nav .main-menu__list ul,
