@@ -4723,7 +4723,7 @@ footer .copyright_row P {
     font-size: 21px;    
   }
 }
-@media (max-width: 376px) {
+@media (max-width: 386px) {
   .main-menu__logo span {
     font-size: 18px;    
   }
