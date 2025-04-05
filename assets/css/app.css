@@ -2662,7 +2662,7 @@ input[type=search]::-webkit-search-results-decoration {
   bottom: 0;
   background-color: #2a322d;
   opacity: 0.3;
-  cursor: url(../images/close.png), auto;
+  cursor: url(../media/close.png), auto;
 }
 .mobile-nav__wrapper .mobile-nav__content {
   width: 330px;
@@ -4720,7 +4720,7 @@ footer .copyright_row P {
 }
 @media (max-width: 480px) {
   .main-menu__logo span {
-    font-size: 17px;
+    font-size: 18px;
     vertical-align: -2px;
   }
 }
