@@ -2399,7 +2399,13 @@ input[type=search]::-webkit-search-results-decoration {
   align-items: center;
   display: none;
 }
-
+.main-menu__logo span {
+  margin-left: 5px; 
+  color: #0F51C2; 
+  font-size: 27px; 
+  font-weight: bold; 
+  vertical-align: -5px;
+}
 @media screen and (min-width: 1200px) {
   .main-menu .main-menu__left .main-menu__nav .main-menu__list,
 .main-menu .main-menu__left .main-menu__nav .main-menu__list ul,
@@ -4707,6 +4713,15 @@ footer .copyright_row P {
 @media (max-width: 767px) {
   .course__card .course__card__content .right__block::before {
     display: none;
+  }
+  .main-menu__logo span {
+    font-size: 22px;    
+  }
+}
+@media (max-width: 480px) {
+  .main-menu__logo span {
+    font-size: 17px;
+    vertical-align: -2px;
   }
 }
 .course__card .course__card__content .right__block .price_block {
