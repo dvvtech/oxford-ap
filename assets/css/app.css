@@ -2402,9 +2402,16 @@ input[type=search]::-webkit-search-results-decoration {
 .main-menu__logo span {
   margin-left: 5px; 
   color: #0F51C2; 
-  font-size: 27px; 
+  font-size: 15px; 
   font-weight: bold; 
-  vertical-align: -5px;
+  vertical-align: -25px;
+}
+.span-first {
+  color: #0F51C2;
+}
+
+.span-second {
+  color: #FF0000;
 }
 @media screen and (min-width: 1200px) {
   .main-menu .main-menu__left .main-menu__nav .main-menu__list,
