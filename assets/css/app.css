@@ -2436,7 +2436,7 @@ input[type=search]::-webkit-search-results-decoration {
 .main-menu .main-menu__left .main-menu__nav .stricky-header .main-menu__list ul {
     display: flex;
     gap: 32px;
-  }
+  }    
 }
 .main-menu .main-menu__left .main-menu__nav .main-menu__list > li,
 .main-menu .main-menu__left .main-menu__nav .stricky-header .main-menu__list > li {
@@ -3071,16 +3071,27 @@ footer .copyright_row P {
   .hero-banner-1 .main-img {
     right: 7%;
   }
+  
 }
 @media only screen and (min-width: 992px) and (max-width: 1399px) {
   .hero-banner-1 .main-img {
     right: 3%;
   }
+  .main-menu__logo .span-1,
+  .main-menu__logo .span-2 {  
+    font-size: 13px;        
+  }
+
+  .main-menu__logo .img-1 {
+    width: 105px;
+  }
+  
 }
 @media (max-width: 991px) {
   .hero-banner-1 .main-img {
     width: 300px;
   }
+  
 }
 @media (max-width: 575px) {
   .hero-banner-1 .main-img {
