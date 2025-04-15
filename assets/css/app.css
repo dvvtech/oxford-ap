@@ -2406,13 +2406,29 @@ input[type=search]::-webkit-search-results-decoration {
   font-weight: bold; 
   vertical-align: -25px;
 }
-.span-first {
-  color: #0F51C2;
+
+.main-menu__logo .span-1,
+.main-menu__logo .span-2 {  
+  font-size: 17px; 
+  font-weight: bold; 
+  vertical-align: -25px;
+}
+.main-menu__logo .span-1 {
+  margin-left: 5px; 
+  color: #9C6D73;   
+}
+.main-menu__logo .span-2 {
+  margin-left: 5px; 
+  color: #0F51C2; 
+}
+.main-menu__logo .img-1 {
+  width: 123px;
+}
+.main-menu__logo .img-2 {
+  width: 79px;
+  margin-left: 5px
 }
 
-.span-second {
-  color: #FF0000;
-}
 @media screen and (min-width: 1200px) {
   .main-menu .main-menu__left .main-menu__nav .main-menu__list,
 .main-menu .main-menu__left .main-menu__nav .main-menu__list ul,
@@ -4722,17 +4738,41 @@ footer .copyright_row P {
     display: none;
   }
   .main-menu__logo span {
-    font-size: 22px;    
+    font-size: 14px;    
+    color: #bc0f0f;
+  }
+  .main-menu__logo .img-1 {
+    width: 90px;
+  }
+  .main-menu__logo .img-2 {
+    width: 50px;
+    margin-left: 5px
   }
 }
 @media (max-width: 480px) {
   .main-menu__logo span {
-    font-size: 21px;    
+    font-size: 13px;        
+    
+  }
+  .main-menu__logo .img-1 {
+    width: 90px;
+  }
+  .main-menu__logo .img-2 {
+    width: 50px;
+    margin-left: 5px
   }
 }
 @media (max-width: 386px) {
   .main-menu__logo span {
-    font-size: 19px;    
+    font-size: 10px;    
+    
+  }
+  .main-menu__logo .img-1 {
+    width: 90px;
+  }
+  .main-menu__logo .img-2 {
+    width: 50px;
+    margin-left: 5px
   }
 }
 .course__card .course__card__content .right__block .price_block {
