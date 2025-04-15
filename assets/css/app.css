@@ -3098,6 +3098,7 @@ footer .copyright_row P {
     right: 3%;
     width: 250px;
   }
+
 }
 @media (max-width: 400px) {
   .hero-banner-1 .main-img {
@@ -3118,13 +3119,13 @@ footer .copyright_row P {
 @media only screen and (min-width: 992px) and (max-width: 1399px) {
   .hero-banner-1 .banner_feature_card {
     right: 19%;
-  }
+  }  
 }
 @media (max-width: 991px) {
   .hero-banner-1 .banner_feature_card {
     right: 25%;
     bottom: 60px;
-  }
+  }  
 }
 @media (max-width: 767px) {
   .hero-banner-1 .banner_feature_card {
@@ -3167,13 +3168,14 @@ footer .copyright_row P {
   .hero-banner-1 .icons img:nth-child(1) {
     right: 505px;
   }
+  
 }
 @media only screen and (min-width: 992px) and (max-width: 1399px) {
   .hero-banner-1 .icons img:nth-child(1) {
     right: 377px;
     top: 120px;
     width: 40px;
-  }
+  }  
 }
 .hero-banner-1 .icons img:nth-child(2) {
   top: 120px;
@@ -3189,7 +3191,7 @@ footer .copyright_row P {
     right: 516px;
     top: 115px;
     width: 46px;
-  }
+  }  
 }
 .hero-banner-1 .icons img:nth-child(3) {
   top: 195px;
@@ -3205,7 +3207,7 @@ footer .copyright_row P {
     right: 327px;
     top: 216px;
     width: 32px;
-  }
+  }  
 }
 .hero-banner-1 .icons img:nth-child(4) {
   top: 215px;
@@ -3268,7 +3270,7 @@ footer .copyright_row P {
 @media (max-width: 767px) {
   .hero-banner-2 .features_row div:nth-child(1) .feature__card {
     margin-top: -55px;
-  }
+  }  
 }
 @media (max-width: 575px) {
   .hero-banner-2 .features_row div:nth-child(1) .feature__card {
@@ -3282,7 +3284,7 @@ footer .copyright_row P {
 @media (max-width: 767px) {
   .hero-banner-2 .features_row div:nth-child(2) .feature__card {
     margin-top: 0;
-  }
+  }  
 }
 .hero-banner-2 .img_block {
   text-align: right;
@@ -3297,7 +3299,7 @@ footer .copyright_row P {
 @media (max-width: 991px) {
   .hero-banner-2 .img_block {
     margin: 0 0 50px 0;
-  }
+  }  
 }
 .hero-banner-2 .img_block .banner_main_img {
   position: absolute;
@@ -3324,18 +3326,28 @@ footer .copyright_row P {
     position: relative;
     inset: auto;
   }
+  .main-menu__logo .span-1,
+  .main-menu__logo .span-2 {  
+    font-size: 17px;        
+  }
+
+  .main-menu__logo .img-1 {
+    width: 123px;
+  }
 }
 @media (max-width: 991px) {
   .hero-banner-2 .img_block .banner_main_img {
     width: 520px;
     height: 393px;
   }
+  
 }
 @media (max-width: 575px) {
   .hero-banner-2 .img_block .banner_main_img {
     width: auto;
     height: auto;
   }
+  
 }
 .hero-banner-2 .img_block .play-btn {
   position: absolute;
