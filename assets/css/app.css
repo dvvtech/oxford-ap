@@ -3387,6 +3387,15 @@ footer .copyright_row P {
     width: 48px;
     height: 48px;
   }
+  .main-menu__logo .span-1,
+  .main-menu__logo .span-2 {  
+    font-size: 15px;        
+  }
+
+  .main-menu__logo .img-1 {
+    width: 100px;
+  }
+  
 }
 .hero-banner-2 .img_block .play-btn i {
   color: #0aa6d7;
@@ -3396,6 +3405,7 @@ footer .copyright_row P {
   .hero-banner-2 .img_block .play-btn i {
     font-size: 16px;
   }
+  
 }
 .hero-banner-2 .img_block .banner_feature_card {
   position: absolute;
