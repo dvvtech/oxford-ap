@@ -4795,22 +4795,11 @@ footer .copyright_row P {
   .course__card .course__card__content .right__block::before {
     display: none;
   }
-  .main-menu__logo span {
-    font-size: 14px;    
-    color: #bc0f0f;
-  }
-  .main-menu__logo .img-1 {
-    width: 90px;
-  }
-  .main-menu__logo .img-2 {
-    width: 50px;
-    margin-left: 5px
-  }
+  
 }
 @media (max-width: 480px) {
   .main-menu__logo span {
-    font-size: 13px;        
-    
+    font-size: 13px;            
   }
   .main-menu__logo .img-1 {
     width: 90px;
@@ -4822,8 +4811,7 @@ footer .copyright_row P {
 }
 @media (max-width: 386px) {
   .main-menu__logo span {
-    font-size: 10px;    
-    
+    font-size: 10px;        
   }
   .main-menu__logo .img-1 {
     width: 90px;
