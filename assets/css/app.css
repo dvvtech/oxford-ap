@@ -2976,7 +2976,7 @@ footer .copyright_row P {
 @media (max-width: 575px) {
   .hero-banner-1 {
     background-position: bottom;
-    height: 450px;
+    height: 500px;
   }
 }
 .hero-banner-1 .content {
@@ -3027,6 +3027,10 @@ footer .copyright_row P {
 @media (max-width: 575px) {
   .hero-banner-1 .content .text_block .btn_block .arrow {
     display: none;
+  }
+
+  .hero-banner-1 .content .text_block {
+    padding-top: 240px;
   }
 }
 .hero-banner-1 .content .text_block .video-btn {
@@ -3150,6 +3154,7 @@ footer .copyright_row P {
   .hero-banner-1 .main-img {
     width: 200px;
   }
+  
 }
 .hero-banner-1 .banner_feature_card {
   position: absolute;
@@ -3181,7 +3186,7 @@ footer .copyright_row P {
 @media (max-width: 450px) {
   .hero-banner-1 .banner_feature_card {
     display: none;
-  }
+  }  
 }
 .hero-banner-1 .banner_feature_card .card_block {
   padding: 12px 24px;
@@ -4822,13 +4827,8 @@ footer .copyright_row P {
   .main-menu__logo span {
     font-size: 13px;            
   }
-  .main-menu__logo .img-1 {
-    width: 90px;
-  }
-  .main-menu__logo .img-2 {
-    width: 50px;
-    margin-left: 5px
-  }
+  
+  /*лого пока пусто*/
 }
 @media (max-width: 386px) {
   .main-menu__logo span {
