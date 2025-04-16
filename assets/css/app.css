@@ -2407,6 +2407,31 @@ input[type=search]::-webkit-search-results-decoration {
   vertical-align: -25px;
 }
 
+.main-menu__logo {
+  display: flex;
+  flex-direction: row; /* Блоки располагаются вертикально */
+  align-items: center; /* Центрирование по горизонтали */
+  gap: 20px; /* Расстояние между блоками */
+}
+
+/* Стиль для первого блока */
+.main-menu__logo .block-1,
+.main-menu__logo .block-2 {
+  display: flex;
+  align-items: center; /* Выравнивание по центру по вертикали */
+  gap: 10px; /* Расстояние между элементами внутри блока */
+}
+
+/* Для первого блока: логотип слева, текст справа */
+.main-menu__logo .block-1 {
+  flex-direction: row; /* Элементы в строку */
+}
+
+/* Для второго блока: текст слева, логотип справа */
+.main-menu__logo .block-2 {
+  flex-direction: row-reverse; /* Элементы в строку, но в обратном порядке */
+}
+
 .main-menu__logo .span-1,
 .main-menu__logo .span-2 {  
   font-size: 17px; 
