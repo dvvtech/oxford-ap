@@ -3138,10 +3138,6 @@ footer .copyright_row P {
     text-align: center; /* Центрирование текста */
   }
 
-  .main-menu__logo .span-2 {  
-    color: red;        
-  }
-
   .main-menu__logo .img-2 {
     width: 79px;
     margin-left: 5px
