@@ -30,6 +30,7 @@
         }
         document.addEventListener("DOMContentLoaded", () => {
             loadComponent("footer", "footer.html");
+            loadComponent("main-logo", "main-logo.html");
         });
     </script>
 
@@ -81,13 +82,7 @@
                     <div class="main-menu__block">
                         <div class="main-menu__left">
 
-                            <div class="main-menu__logo">
-                                <a href="index.html">
-                                    <img src="assets/media/logo1.png" width="87" alt="Educate">
-                                    <span>
-                                        АСО Кафедра АП
-                                    </span>
-                                </a>
+                            <div id="main-logo" class="main-menu__logo">                                
                             </div>
 
                             <div class="main-menu__nav">
