@@ -2680,7 +2680,7 @@ input[type=search]::-webkit-search-results-decoration {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 999;
+  z-index: 9999;
   transform: translateX(-100%);
   transform-origin: left center;
   transition: transform 500ms ease 500ms, visibility 500ms ease 500ms;
@@ -4444,7 +4444,7 @@ footer .copyright_row P {
 @media (max-width: 575px) {
   .page_title_banner {
     background: url(../media/banners/page-title-bg.png);
-    height: 350px;
+    height: 420px;
   }
 }
 .page_title_banner .content {
@@ -4467,6 +4467,7 @@ footer .copyright_row P {
 .page_title_banner .content .title {
   position: relative;
   flex-shrink: 0;
+  margin-top: 100px;
 }
 @media (max-width: 575px) {
   .page_title_banner .content .title {

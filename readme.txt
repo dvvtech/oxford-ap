@@ -19,3 +19,13 @@
 todo:
 
 1. При открытии меню в мобильной версии не раскрываются подменю. Нужно сделать див с меню чтобы он был поверх всего и за ним не было видно логотипа
+
+Изменил z index в mobile-nav__wrapper чтоб лого было под меню мобильного
+
+Изменил высоту хедера
+@media (max-width: 575px) {
+  .page_title_banner {
+    background: url(../media/banners/page-title-bg.png);
+    height: 420px;
+  }
+}
