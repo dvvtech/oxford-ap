@@ -16,6 +16,9 @@
                 </span>    
 
 
+4. делает изображжение по центру
+<img src="../assets/media/logo1.png" alt="" class="d-block mx-auto">
+
 todo:
 
 1. http://127.0.0.1:5500/department/aboutDoctorYashar.html
