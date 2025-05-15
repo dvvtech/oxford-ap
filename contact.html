@@ -61,16 +61,16 @@
                                     body: document.getElementById('detail-message').value,
                                     recaptchaToken: token
                                 })
-                            })                                
+                            })
                                 .then(response => {
-                                    if(response.ok){
+                                    if (response.ok) {
                                         // Обработка успешной отправки
                                         document.getElementById('message').innerHTML =
                                             '<div class="alert alert-success">Сообщение отправлено!</div>';
                                     }
-                                    else{
+                                    else {
                                         document.getElementById('message').innerHTML =
-                                        '<div class="alert alert-danger">Ошибка отправки.</div>';
+                                            '<div class="alert alert-danger">Ошибка отправки.</div>';
                                     }
                                 })
                                 .catch(error => {
@@ -184,9 +184,11 @@
                                     <li class="dropdown">
                                         <a href="javascript:void(0);">О науке</a>
                                         <ul>
-                                            <li><a href="science/roseOfVenus.html">Роза Венеры</a></li>
-                                            <li><a href="index-2.html">Курс 2</a></li>
-                                            <li><a href="index-2.html">Курс 3</a></li>
+                                            <!--<li><a href="science/roseOfVenus.html">Роза Венеры</a></li>-->
+                                            <li><a href="science/logotype.html">"Yay-Osido"- logotype of our company</a>
+                                            </li>
+                                            <li><a href="science/company.html">Company profile</a></li>
+                                            <li><a href="science/career.html">Career</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="research/main.html">Исследования</a></li>
@@ -242,7 +244,8 @@
                 <div class="row">
                     <div class="col-lg-6 mb-24 mb-lg-0">
                         <h6 class="color-primary mb-8">–––– Контактная форма</h6>
-                        <h2 class="mb-16">Пишите нам в любое время, мы будем<br> рады услышать <span style="color:rgb(10, 166, 215);">Вас!</span></h2>
+                        <h2 class="mb-16">Пишите нам в любое время, мы будем<br> рады услышать <span
+                                style="color:rgb(10, 166, 215);">Вас</span>!</h2>
                         <!--<p class="mb-32">Lorem ipsum dolor sit amet consectetur. Non convallis sed id <br>aliquam
                             tempus. Volutpat tortor tincidunt egestas sit risus donec.</p>-->
                         <form method="post" action="contact.html" class="contact-form form-validator" id="contactForm">
