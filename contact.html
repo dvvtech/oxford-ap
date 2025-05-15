@@ -22,11 +22,67 @@
     <link rel="stylesheet" href="assets/vendor/nice-select/nice-select.css">
     <link rel="stylesheet" href="assets/css/app.css">
 
+    <script src="https://www.google.com/recaptcha/api.js?render=6Ld4PzorAAAAAD3WmaKtF6enW31lZ6AEkCG8uuby" async
+        defer></script>
+
     <script>
         async function loadComponent(id, file) {
             const response = await fetch(file);
             const content = await response.text();
             document.getElementById(id).innerHTML = content;
+
+            const API_BASE_URL = 'https://a33140-9deb.k.d-f.pw';
+            //const API_BASE_URL = 'https://localhost:7287';
+
+            document.getElementById('contactForm').addEventListener('submit', function (e) {
+                e.preventDefault(); // Отменяем стандартную отправку
+
+                // Показываем лоадер (опционально)
+                const submitBtn = document.getElementById('submitButton');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Отправка...';
+
+                // Получаем токен reCAPTCHA
+                grecaptcha.ready(() => {
+                    grecaptcha.execute('6Ld4PzorAAAAAD3WmaKtF6enW31lZ6AEkCG8uuby', { action: 'submit' })
+                        .then(token => {
+                            // Добавляем токен в скрытое поле
+                            document.getElementById('recaptchaToken').value = token;
+
+                            // Отправляем форму
+                            fetch(`${API_BASE_URL}/api/email/send`, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    name: document.getElementById('name').value,
+                                    surname: document.getElementById('last-name').value,
+                                    fromEmail: document.getElementById('email').value,
+                                    subject: document.getElementById('subject').value,
+                                    body: document.getElementById('detail-message').value,
+                                    recaptchaToken: token
+                                })
+                            })
+                                .then(response => response.json())
+                                .then(data => {
+                                    // Обработка успешной отправки
+                                    document.getElementById('message').innerHTML =
+                                        '<div class="alert alert-success">Сообщение отправлено!</div>';
+                                })
+                                .catch(error => {
+                                    document.getElementById('message').innerHTML =
+                                        '<div class="alert alert-danger">Ошибка отправки.</div>';
+                                })
+                                .finally(() => {
+                                    submitBtn.disabled = false;
+                                    submitBtn.innerHTML = '<span class="educate-btn__curve"></span>Отправить Сообщение';
+                                });
+                        })
+                        .catch(error => {
+                            console.error('reCAPTCHA error:', error);
+                            submitBtn.disabled = false;
+                        });
+                });
+            });
         }
         document.addEventListener("DOMContentLoaded", () => {
             loadComponent("footer", "footer.html");
@@ -185,7 +241,7 @@
                                 class="fm-sec">Вас!</span></h2>
                         <!--<p class="mb-32">Lorem ipsum dolor sit amet consectetur. Non convallis sed id <br>aliquam
                             tempus. Volutpat tortor tincidunt egestas sit risus donec.</p>-->
-                        <form method="post" action="contact.html" class="contact-form form-validator">
+                        <form method="post" action="contact.html" class="contact-form form-validator" id="contactForm">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="mb-24">
@@ -218,6 +274,9 @@
                                 <textarea class="form-control p_lg" id="detail-message" name="message" rows="5" required
                                     placeholder="Message"></textarea>
                             </div>
+
+                            <input type="hidden" id="recaptchaToken" name="recaptchaToken">
+
                             <div class="text-end">
                                 <button type="submit" class="educate-btn"><span
                                         class="educate-btn__curve"></span>Отправить
