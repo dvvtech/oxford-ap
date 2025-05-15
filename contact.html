@@ -61,12 +61,17 @@
                                     body: document.getElementById('detail-message').value,
                                     recaptchaToken: token
                                 })
-                            })
-                                .then(response => response.json())
-                                .then(data => {
-                                    // Обработка успешной отправки
-                                    document.getElementById('message').innerHTML =
-                                        '<div class="alert alert-success">Сообщение отправлено!</div>';
+                            })                                
+                                .then(response => {
+                                    if(response.ok){
+                                        // Обработка успешной отправки
+                                        document.getElementById('message').innerHTML =
+                                            '<div class="alert alert-success">Сообщение отправлено!</div>';
+                                    }
+                                    else{
+                                        document.getElementById('message').innerHTML =
+                                        '<div class="alert alert-danger">Ошибка отправки.</div>';
+                                    }
                                 })
                                 .catch(error => {
                                     document.getElementById('message').innerHTML =
