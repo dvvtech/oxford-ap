@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harmonizer Video Demo</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background: #000;
@@ -17,25 +23,28 @@
             padding: 20px;
             cursor: pointer;
         }
+
         .container {
             max-width: 800px;
             width: 100%;
             position: relative;
         }
+
         .video-container {
             background: #000;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
             position: relative;
         }
+
         video {
             width: 100%;
             height: auto;
             display: block;
             border-radius: 12px;
         }
-        
+
         /* Оверлей для запуска */
         .play-overlay {
             position: absolute;
@@ -55,23 +64,26 @@
             border-radius: 12px;
             z-index: 10;
         }
+
         .play-icon {
             font-size: 70px;
             margin-bottom: 20px;
             opacity: 0.9;
         }
+
         .play-text {
             font-size: 24px;
             margin-bottom: 10px;
             font-weight: 500;
         }
+
         .play-hint {
             font-size: 16px;
             opacity: 0.8;
             max-width: 300px;
             line-height: 1.4;
         }
-        
+
         /* Кнопка звука - всегда видимая после запуска */
         .sound-btn {
             position: absolute;
@@ -92,23 +104,26 @@
             transition: all 0.3s ease;
             backdrop-filter: blur(5px);
         }
+
         .sound-btn:hover {
             background: rgba(0, 0, 0, 0.9);
             border-color: rgba(255, 255, 255, 0.6);
             transform: scale(1.1);
         }
+
         .sound-btn:active {
             transform: scale(0.95);
         }
-        
+
         /* Индикация состояния звука */
         .sound-btn.muted::before {
             content: "🔇";
         }
+
         .sound-btn:not(.muted)::before {
             content: "🔊";
         }
-        
+
         /* Подсказка при наведении на десктопе */
         .sound-tooltip {
             position: absolute;
@@ -126,16 +141,18 @@
             pointer-events: none;
             z-index: 30;
         }
+
         .sound-btn:hover .sound-tooltip {
             opacity: 1;
             transform: translateX(0);
         }
-        
+
         /* Ссылка назад */
         .back-link {
             margin-top: 25px;
             text-align: center;
         }
+
         .back-link a {
             color: #fff;
             text-decoration: none;
@@ -146,11 +163,12 @@
             border-radius: 6px;
             transition: all 0.3s;
         }
+
         .back-link a:hover {
             opacity: 1;
             background: rgba(255, 255, 255, 0.15);
         }
-        
+
         /* Индикатор загрузки */
         .loader {
             display: none;
@@ -160,21 +178,33 @@
             transform: translate(-50%, -50%);
             width: 50px;
             height: 50px;
-            border: 3px solid rgba(255,255,255,0.3);
+            border: 3px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             border-top-color: #fff;
             animation: spin 1s ease-in-out infinite;
             z-index: 5;
         }
+
         @keyframes spin {
-            to { transform: translate(-50%, -50%) rotate(360deg); }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
         }
-        
+
         /* Адаптивность */
         @media (max-width: 768px) {
-            .play-icon { font-size: 60px; }
-            .play-text { font-size: 20px; }
-            .play-hint { font-size: 15px; }
+            .play-icon {
+                font-size: 60px;
+            }
+
+            .play-text {
+                font-size: 20px;
+            }
+
+            .play-hint {
+                font-size: 15px;
+            }
+
             .sound-btn {
                 width: 44px;
                 height: 44px;
@@ -183,82 +213,95 @@
                 right: 15px;
             }
         }
-        
+
         @media (max-width: 480px) {
-            .play-icon { font-size: 50px; }
-            .play-text { font-size: 18px; }
-            .play-hint { font-size: 14px; }
+            .play-icon {
+                font-size: 50px;
+            }
+
+            .play-text {
+                font-size: 18px;
+            }
+
+            .play-hint {
+                font-size: 14px;
+            }
+
             .sound-btn {
                 width: 40px;
                 height: 40px;
                 font-size: 18px;
             }
-            body { padding: 15px; }
+
+            body {
+                padding: 15px;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="video-container" id="videoContainer">
             <!-- Индикатор загрузки -->
             <div class="loader" id="loader"></div>
-            
+
             <!-- Видео -->
             <video id="harmonVideo" playsinline poster="harmon-preview.png">
                 <source src="harmonizer.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            
+
             <!-- Оверлей для запуска -->
             <div class="play-overlay" id="playOverlay">
                 <div class="play-icon">▶</div>
                 <div class="play-text">Harmonizer</div>
                 <div class="play-hint">Click anywhere to start playing</div>
             </div>
-            
+
             <!-- Кнопка звука с подсказкой -->
             <button class="sound-btn" id="soundBtn">
                 <span class="sound-tooltip" id="soundTooltip">Click to unmute</span>
             </button>
         </div>
-        
+
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const video = document.getElementById('harmonVideo');
             const playOverlay = document.getElementById('playOverlay');
             const soundBtn = document.getElementById('soundBtn');
             const soundTooltip = document.getElementById('soundTooltip');
             const loader = document.getElementById('loader');
             const videoContainer = document.getElementById('videoContainer');
-            
+
             let hasUserInteracted = false;
             let isVideoPlaying = false;
-            
+
             // Начальная настройка
             video.muted = true; // Звук выключен для возможности автозапуска
             soundBtn.classList.add('muted');
             //soundTooltip.textContent = 'Click to unmute';
-            
+
             // Функция запуска видео
             async function startVideoPlayback() {
                 if (isVideoPlaying) return;
-                
+
                 hasUserInteracted = true;
                 playOverlay.style.display = 'none';
                 loader.style.display = 'block';
-                
+
                 try {
                     await video.play();
                     isVideoPlaying = true;
                     console.log('Video started playing');
-                    
+
                     // Показываем стандартные контролы через 1 секунду
                     setTimeout(() => {
                         video.setAttribute('controls', '');
                     }, 1000);
-                    
+
                 } catch (error) {
                     console.error('Playback failed:', error);
                     playOverlay.style.display = 'flex';
@@ -271,35 +314,35 @@
                     loader.style.display = 'none';
                 }
             }
-            
+
             // Обработчики кликов для запуска
             playOverlay.addEventListener('click', startVideoPlayback);
-            videoContainer.addEventListener('click', function(e) {
+            videoContainer.addEventListener('click', function (e) {
                 if (!hasUserInteracted && e.target === videoContainer) {
                     startVideoPlayback();
                 }
             });
-            
+
             // Управление звуком
-            soundBtn.addEventListener('click', function(e) {
+            soundBtn.addEventListener('click', function (e) {
                 e.stopPropagation(); // Не запускаем видео при клике на кнопку звука
-                
-                
-                
+
+
+
                 // Переключаем звук
                 video.muted = !video.muted;
                 soundBtn.classList.toggle('muted', video.muted);
-                
+
                 // Обновляем подсказку
                 //soundTooltip.textContent = video.muted ? 'Click to unmute' : 'Click to mute';
-                 soundTooltip.style.display = 'none';
-                 soundBtn.style.display = 'none';
+                soundTooltip.style.display = 'none';
+                soundBtn.style.display = 'none';
                 // Сохраняем настройку в localStorage
                 //localStorage.setItem('harmonizerVideoMuted', video.muted);
-                
+
                 console.log('Sound ' + (video.muted ? 'muted' : 'unmuted'));
             });
-            
+
             // Загружаем настройку звука из localStorage
             const savedMute = localStorage.getItem('harmonizerVideoMuted');
             if (savedMute !== null) {
@@ -307,7 +350,7 @@
                 soundBtn.classList.toggle('muted', video.muted);
                 //soundTooltip.textContent = video.muted ? 'Click to unmute' : 'Click to mute';
             }
-            
+
             // Автозапуск при загрузке (muted)
             setTimeout(() => {
                 if (!hasUserInteracted) {
@@ -322,16 +365,16 @@
                     });
                 }
             }, 500);
-            
+
             // Обновление иконки при изменении громкости через стандартные контролы
-            video.addEventListener('volumechange', function() {
+            video.addEventListener('volumechange', function () {
                 const isMuted = video.muted || video.volume === 0;
                 soundBtn.classList.toggle('muted', isMuted);
                 //soundTooltip.textContent = isMuted ? 'Click to unmute' : 'Click to mute';
             });
-            
+
             // Обработка завершения видео
-            video.addEventListener('ended', function() {
+            video.addEventListener('ended', function () {
                 playOverlay.style.display = 'flex';
                 playOverlay.innerHTML = `
                     <div class="play-icon">⟳</div>
@@ -341,7 +384,7 @@
                 isVideoPlaying = false;
                 video.removeAttribute('controls');
             });
-            
+
             // Глобальный клик по странице для запуска
             document.addEventListener('click', function firstPageClick() {
                 if (!hasUserInteracted) {
@@ -350,6 +393,13 @@
                 document.removeEventListener('click', firstPageClick);
             });
         });
+
+        video.addEventListener('play', function () {
+            console.log('VIDEO_ANALYTICS: Video play started');
+            // Здесь можно добавить любой трекинг
+        });
+
     </script>
 </body>
+
 </html>
