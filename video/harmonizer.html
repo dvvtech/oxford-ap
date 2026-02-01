@@ -25,11 +25,34 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
         }
         video {
             width: 100%;
             height: auto;
             display: block;
+        }
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: none;
+        }
+        .play-button::after {
+            content: '▶';
+            color: white;
+            font-size: 30px;
+            position: absolute;
+            top: 50%;
+            left: 55%;
+            transform: translate(-50%, -50%);
         }
         .back-link {
             margin-top: 20px;
@@ -50,22 +73,63 @@
 <body>
     <div class="container">
         <div class="video-container">
-            <video controls autoplay playsinline>
-                <source src="harmonizer.mp4" type="video/mp4">
+            <video id="harmonVideo" controls playsinline>
+                <source src="harmon.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
+            <button id="playButton" class="play-button" aria-label="Play video"></button>
         </div>
         <div class="back-link">
             <a href="https://oxford.com">← Back to Oxford.com</a>
         </div>
     </div>
-    
-    <!-- Простая аналитика (опционально) -->
+
     <script>
-        // Отслеживание начала просмотра
-        document.querySelector('video').addEventListener('play', function() {
-            console.log('Video started playing');
-            // Здесь можно добавить Google Analytics или другую аналитику
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('harmonVideo');
+            const playButton = document.getElementById('playButton');
+            
+            // Убираем стандартные контролы для чистого вида
+            video.removeAttribute('controls');
+            
+            // Стратегия автовоспроизведения
+            const playVideo = async () => {
+                try {
+                    // Пробуем воспроизвести автоматически
+                    await video.play();
+                    playButton.style.display = 'none';
+                    console.log('Автовоспроизведение удалось');
+                } catch (err) {
+                    // Если автовоспроизведение заблокировано
+                    console.log('Автовоспроизведение заблокировано, показываем кнопку');
+                    playButton.style.display = 'block';
+                    
+                    // Показываем постер для привлечения внимания
+                    video.setAttribute('poster', 'harmon-preview.jpg');
+                }
+            };
+            
+            // Кнопка ручного воспроизведения
+            playButton.addEventListener('click', () => {
+                video.play();
+                playButton.style.display = 'none';
+                video.setAttribute('controls', '');
+            });
+            
+            // Запускаем попытку автовоспроизведения
+            playVideo();
+            
+            // Дополнительная попытка при взаимодействии с пользователем
+            document.addEventListener('click', function firstClick() {
+                playVideo();
+                document.removeEventListener('click', firstClick);
+            });
+            
+            // Аналитика (опционально)
+            video.addEventListener('play', function() {
+                console.log('Видео воспроизводится');
+                // gtag('event', 'video_play', {video_name: 'harmonizer'});
+            });
         });
     </script>
 </body>
