@@ -212,7 +212,7 @@
             <!-- Оверлей для запуска -->
             <div class="play-overlay" id="playOverlay">
                 <div class="play-icon">▶</div>
-                <div class="play-text">Harmonizer Demo</div>
+                <div class="play-text">Harmonizer</div>
                 <div class="play-hint">Click anywhere to start playing</div>
             </div>
             
@@ -239,7 +239,7 @@
             // Начальная настройка
             video.muted = true; // Звук выключен для возможности автозапуска
             soundBtn.classList.add('muted');
-            soundTooltip.textContent = 'Click to unmute';
+            //soundTooltip.textContent = 'Click to unmute';
             
             // Функция запуска видео
             async function startVideoPlayback() {
@@ -284,21 +284,18 @@
             soundBtn.addEventListener('click', function(e) {
                 e.stopPropagation(); // Не запускаем видео при клике на кнопку звука
                 
-                if (!hasUserInteracted) {
-                    // Если ещё не взаимодействовали, сначала запускаем видео
-                    startVideoPlayback();
-                    return;
-                }
+                
                 
                 // Переключаем звук
                 video.muted = !video.muted;
                 soundBtn.classList.toggle('muted', video.muted);
                 
                 // Обновляем подсказку
-                soundTooltip.textContent = video.muted ? 'Click to unmute' : 'Click to mute';
-                
+                //soundTooltip.textContent = video.muted ? 'Click to unmute' : 'Click to mute';
+                 soundTooltip.style.display = 'none';
+                 soundBtn.style.display = 'none';
                 // Сохраняем настройку в localStorage
-                localStorage.setItem('harmonizerVideoMuted', video.muted);
+                //localStorage.setItem('harmonizerVideoMuted', video.muted);
                 
                 console.log('Sound ' + (video.muted ? 'muted' : 'unmuted'));
             });
@@ -306,9 +303,9 @@
             // Загружаем настройку звука из localStorage
             const savedMute = localStorage.getItem('harmonizerVideoMuted');
             if (savedMute !== null) {
-                video.muted = savedMute === 'true';
+                //video.muted = savedMute === 'true';
                 soundBtn.classList.toggle('muted', video.muted);
-                soundTooltip.textContent = video.muted ? 'Click to unmute' : 'Click to mute';
+                //soundTooltip.textContent = video.muted ? 'Click to unmute' : 'Click to mute';
             }
             
             // Автозапуск при загрузке (muted)
@@ -330,7 +327,7 @@
             video.addEventListener('volumechange', function() {
                 const isMuted = video.muted || video.volume === 0;
                 soundBtn.classList.toggle('muted', isMuted);
-                soundTooltip.textContent = isMuted ? 'Click to unmute' : 'Click to mute';
+                //soundTooltip.textContent = isMuted ? 'Click to unmute' : 'Click to mute';
             });
             
             // Обработка завершения видео
