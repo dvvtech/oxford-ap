@@ -397,6 +397,14 @@
         video.addEventListener('play', function () {
             console.log('VIDEO_ANALYTICS: Video play started');
             // Здесь можно добавить любой трекинг
+            fetch('https://api.cloud-platform.pro/data-analyst/v1/analytics/track', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    pageUrl: window.location.href,       // Текущий URL
+                    referrer: document.referrer          // Откуда пришел
+                })
+            });
         });
 
     </script>
