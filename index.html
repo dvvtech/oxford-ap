@@ -211,11 +211,25 @@
         <div class="blog_detail">
           <div class="row">
             <div class="col-12">
-              <div class="lang-switcher text-center mb-32" style="font-size: 2rem; cursor: pointer;">
-                <span class="mx-2" onclick="switchLang('az')" title="Azərbaycan">🇦🇿</span>
-                <span class="mx-2" onclick="switchLang('ru')" title="Русский">🇷🇺</span>
-                <span class="mx-2" onclick="switchLang('en')" title="English">🇬🇧</span>
+              <div class="lang-switcher text-center mb-32" style="font-size: 1.1rem; cursor: pointer;">
+                <span class="mx-3 lang-label" onclick="switchLang('az')" title="Azərbaycan">AZ</span>
+                <span class="mx-3 lang-label" onclick="switchLang('ru')" title="Русский">RU</span>
+                <span class="mx-3 lang-label" onclick="switchLang('en')" title="English">EN</span>
               </div>
+              <style>
+                .lang-label {
+                  display: inline-block;
+                  padding: 4px 12px;
+                  border-radius: 4px;
+                  transition: all 0.2s;
+                  font-weight: 600;
+                  color: #888;
+                }
+                .lang-label.active {
+                  color: #fff;
+                  background: #2b4eff;
+                }
+              </style>
 
               <div id="article-az" class="article-lang" style="display:none;">
                 <h2 class="mb-16">Canlı Sistemlərin Sağlam Gələcəyi Naminə:<br>Funksional Vəziyyət və Endoekologiya</h2>
@@ -448,7 +462,14 @@
           el.style.display = 'none';
         });
         document.getElementById('article-' + lang).style.display = 'block';
+        document.querySelectorAll('.lang-label').forEach(function(el) {
+          el.classList.remove('active');
+        });
+        document.querySelector('.lang-label[onclick*="' + lang + '"]').classList.add('active');
       }
+      document.addEventListener('DOMContentLoaded', function() {
+        switchLang('ru');
+      });
     </script>
 
     <!-- Features Area Start -->
